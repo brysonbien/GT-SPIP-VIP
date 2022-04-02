@@ -39,9 +39,9 @@ export default function Login({ setToken }) {
                     <input id="pass" className="passInput" type="password" onChange={e => setPassword(e.target.value)} />
                 </label>
                 <div className="btnSubmit">
-                    <button type="submit">Log in</button> <br /> <br />
-                    <button type="submit">Forgot Password</button> <br /><br />
-                    <button type="submit">New User</button>
+                    <button type="submit" class="loginButtons">Log in</button> <br /> <br />
+                    <button type="submit" class="loginButtons">Forgot Password</button> <br /><br />
+                    <button type="submit" class="loginButtons">New User</button>
                 </div>
             </form>
         </div>

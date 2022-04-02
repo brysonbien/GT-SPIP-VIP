@@ -1,0 +1,56 @@
+button.btnGenerate {
+    background-color: #B3A369;
+    color: white;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-top: 20px;
+    position: relative;
+    left: 65%;
+    font-size: 20px;
+}
+button.btnPrint {
+    background-color: #B3A369;
+    color: white;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-top: 20px;
+    position: relative;
+    left: 80%;
+    font-size: 20px;
+}
+button.savedGenerationBtn {
+    background-color: #B3A369;
+    color: white;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-top: 150px;
+    position: relative;
+    left: 10%;
+    font-size: 20px;
+}
+Dropdown.dropdown {
+    left: 100%;
+}
+select.selectPlayers {
+    width: 150px;
+    height: 30px;
+    border-radius: 25px;
+    padding-left: 20px;
+}
+label.dateRangeLabel {
+    color: white;
+    font-weight: bold;
+}
+div.configurationGroup {
+    display : table-row;
+}
+.Row {
+    display: table;
+    width: 100%; /*Optional*/
+    table-layout: fixed; /*Optional*/
+    border-spacing: 10px; /*Optional*/
+}
+.Column {
+    display: table-cell;
+     /*Optional*/
+}

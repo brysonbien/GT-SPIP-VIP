@@ -16,7 +16,7 @@ body {
     left: 35%;
 }
 
-button {
+button.loginButtons {
     background-color: #B3A369;
     color: white;
     border-radius: 25px;
