@@ -1,5 +1,15 @@
-
-d3.csv("jumpdata.csv").get(function(error, data){
+var data = [{ Name: "Deebo Coleman", Jumps: "126", JumpLoad: "24785.54" },
+        { Name: "Devion Smith", Jumps: "95", JumpLoad: "16690.31" },
+        { Name: "Jalon Moore", Jumps: "81", JumpLoad: "16763.9" },
+        { Name: "Jehloni James", Jumps: "23", JumpLoad: "5145.01" },
+        { Name: "Jordan Meka", Jumps: "31", JumpLoad: "8823.81" },
+        { Name: "Jordan Usher", Jumps: "82", JumpLoad: "21417.83" },
+        { Name: "Khalid Moore", Jumps: "112", JumpLoad: "22095.69" },
+        { Name: "Kyle Sturdivant", Jumps: "107", JumpLoad: "18066.84" },
+        { Name: "Michael Devoe", Jumps: "70", JumpLoad: "11722.58" },
+        { Name: "Miles Kelly", Jumps: "120", JumpLoad: "17381.69" },
+        { Name: "Rodney Howard", Jumps: "49", JumpLoad: "14499.76" },
+        { Name: "Saba Gigiberia", Jumps: "70", JumpLoad: "17998.15" }]
 
     var height = 300;
     var width = 500;
@@ -64,4 +74,4 @@ d3.csv("jumpdata.csv").get(function(error, data){
                 div.style('opacity', 0).html('');
             });
 
-})
+
