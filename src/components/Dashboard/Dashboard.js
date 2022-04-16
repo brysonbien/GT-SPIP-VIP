@@ -3,7 +3,6 @@ import './Dashboard.css';
 import PropTypes from 'prop-types';
 export default function Dashboard() {
     const [player, setPlayer] = React.useState('Select a player: ');
-  
     const handlePlayerChange = (event) => {
       setPlayer(event.target.value);
     };
@@ -48,6 +47,10 @@ export default function Dashboard() {
       const endDate = document.getElementById("endDate").value
       var lengthCondition = (startDate.length == 10 && endDate.length == 10)
       var formatCondition = (isValidDate(startDate) && isValidDate(endDate));
+      if (player === "Select a player: ") {
+        window.alert("Please select a player")
+        return;
+      }
       if (lengthCondition && formatCondition) {
         var sequentialCondition = (Date.parse(startDate) < Date.parse(endDate));
         if (sequentialCondition) {
