@@ -40,6 +40,7 @@ select.selectPlayers {
 label.dateRangeLabel {
     color: white;
     font-weight: bold;
+    padding-left: 150px;
 }
 div.configurationGroup {
     display : table-row;
