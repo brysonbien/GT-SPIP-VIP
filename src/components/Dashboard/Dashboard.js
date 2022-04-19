@@ -74,8 +74,7 @@ export default function Dashboard() {
         <div>
             <div class = "Row">
 
-                <button type="submit" class="btnPrint">Print</button>
-                <button onClick = {(e) => handleQuery()} type="submit" class="btnGenerate">Generate</button> 
+                 
               
                
                 <Dropdown
@@ -91,20 +90,26 @@ export default function Dashboard() {
                       value={player}
                       onChange={handlePlayerChange}
                   /> 
-              
+
+                
                 <label class = "dateRangeLabel">
                     <label>Date Range (MM/DD/YYYY):</label>
                     <input id = "startDate"/>
                     <input id = "endDate"/>
                   </label>
                 
+                
+                
        
                 
             </div>
-            <div>
-                <button type="submit" class = "savedGenerationBtn" >Saved Generation 1</button> <br /> <br />
-                <button type="submit" class = "savedGenerationBtn" >Saved Generation 2</button>
-            </div>
+            <div class = "buttondiv">
+                  <button type="submit" class="btnPrint">Print</button>
+                  <button onClick = {(e) => handleQuery()} type="submit" class="btnGenerate">Generate</button>
+                  <button type="submit" class = "savedGenerationBtn" >Saved Generation 1</button> <br /> <br />
+                  <button type="submit" class = "savedGenerationBtn" >Saved Generation 2</button>
+                </div>
+            
 
         </div>
         

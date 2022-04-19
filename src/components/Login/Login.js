@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import PropTypes from 'prop-types';
+import {BrowserRouter, Route, Switch, Link} from 'react-router-dom';
 
 async function loginUser(credentials) {
     return fetch('http://localhost:8080/login', {
@@ -39,7 +40,10 @@ export default function Login({ setToken }) {
                     <input id="pass" className="passInput" type="password" onChange={e => setPassword(e.target.value)} />
                 </label>
                 <div className="btnSubmit">
-                    <button type="submit" class="loginButtons">Log in</button> <br /> <br />
+                    <Link to = "/dashboard">
+                        <button type="submit" class="loginButtons">Log in</button> <br /> <br />
+                    </Link>
+
                     <button type="submit" class="loginButtons">Forgot Password</button> <br /><br />
                     <button type="submit" class="loginButtons">New User</button>
                 </div>

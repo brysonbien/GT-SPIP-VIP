@@ -4,9 +4,13 @@ button.btnGenerate {
     border-radius: 25px;
     font-weight: bold;
     margin-top: 20px;
-    position: relative;
-    left: 65%;
+    display: flex;
+    /* justify-content: flex-end; */
+    flex-direction: row-reverse;
+    float: right;
+    /* left: 65%; */
     font-size: 20px;
+    padding: 5px;
 }
 button.btnPrint {
     background-color: #B3A369;
@@ -14,44 +18,55 @@ button.btnPrint {
     border-radius: 25px;
     font-weight: bold;
     margin-top: 20px;
-    position: relative;
-    left: 80%;
+    /* position: relative; */
+    /* left: 80%; */
     font-size: 20px;
+    padding: 5px;
 }
 button.savedGenerationBtn {
     background-color: #B3A369;
     color: white;
     border-radius: 25px;
     font-weight: bold;
-    margin-top: 150px;
-    position: relative;
-    left: 10%;
+    margin-top: 20px;
+    display: flex;
+    /* justify-content: flex-end; */
+    flex-direction: row-reverse;
+    float: right;
+    /* left: 65%; */
     font-size: 20px;
+    padding: 5px;
 }
 Dropdown.dropdown {
     left: 100%;
+    
 }
 select.selectPlayers {
     width: 150px;
     height: 30px;
     border-radius: 25px;
-    padding-left: 20px;
+    /*padding-left: 20px; */
 }
 label.dateRangeLabel {
     color: white;
     font-weight: bold;
-    padding-left: 5%;
-}f
-div.configurationGroup {
+    justify-content: center;
+    padding: 10px;
+}
+/* div.configurationGroup {
     display : table-row;
-}
+} */
 .Row {
-    display: table;
+    display: flex;
     width: 100%; /*Optional*/
-    table-layout: fixed; /*Optional*/
-    border-spacing: 10px; /*Optional*/
+    justify-content: center;
 }
-.Column {
+/* .Column {
     display: table-cell;
-     /*Optional*/
+    
+} */
+
+.buttondiv {
+    display: flex;
+    justify-content: center;
 }
