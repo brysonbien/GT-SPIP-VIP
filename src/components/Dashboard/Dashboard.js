@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
-import data from "/Users/yuxiaoliu/Desktop/gtmbb-sports-platform/src/data/Devoe_points_NonZero.csv";
+import data from "./Devoe_points_NonZero.csv";
 import "./Dashboard.css";
 import PropTypes from "prop-types";
 import * as d3 from "d3";
+import { AwesomeButton } from "react-awesome-button";
+import "react-awesome-button/dist/styles.css";
 export default function Dashboard() {
   const [player, setPlayer] = React.useState("Select a player: ");
   const handlePlayerChange = (event) => {
@@ -268,9 +270,9 @@ export default function Dashboard() {
           >
             Generate
           </button>
-          <button type="submit" class="savedGenerationBtn">
+          <AwesomeButton type="submit" class="savedGenerationBtn">
             Saved Generation 1
-          </button>{" "}
+          </AwesomeButton>{" "}
           <br /> <br />
           <button type="submit" class="savedGenerationBtn">
             Saved Generation 2
