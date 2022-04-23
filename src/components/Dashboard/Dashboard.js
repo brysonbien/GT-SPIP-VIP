@@ -3,8 +3,8 @@ import data from "./Devoe_points_NonZero.csv";
 import "./Dashboard.css";
 import PropTypes from "prop-types";
 import * as d3 from "d3";
-import { AwesomeButton } from "react-awesome-button";
-import "react-awesome-button/dist/styles.css";
+// import { AwesomeButton } from "react-awesome-button";
+// import "react-awesome-button/dist/styles.css";
 export default function Dashboard() {
   const [player, setPlayer] = React.useState("Select a player: ");
   const handlePlayerChange = (event) => {
@@ -71,7 +71,7 @@ export default function Dashboard() {
   //if valid store in a list separated by each section
 
   useEffect(() => {
-    var margin = { top: 30, right: 40, bottom: 30, left: 50 },
+    var margin = { top: 50, right: 50, bottom: 50, left: 50 },
       width = 1300,
       height = 270 - margin.top - margin.bottom;
 
@@ -188,7 +188,7 @@ export default function Dashboard() {
 
       svg
         .append("path") // Add the valueline path.
-        .style("stroke", "steelblue")
+        .style("stroke", "yellow")
         .style("fill", "none")
         .attr("d", valueline(data));
 
@@ -202,7 +202,7 @@ export default function Dashboard() {
       svg
         .append("path")
         .style("opacity", 0.5)
-        .style("stroke", "steelblue")
+        .style("stroke", "yellow")
         .style("fill", "none")
         .attr("d", avgPointsLine(data));
 
@@ -217,20 +217,51 @@ export default function Dashboard() {
         .append("g") // Add the X Axis
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
+        .style("fill", "white")
         .call(xAxis);
 
       svg
         .append("g")
         .attr("class", "y axis")
-        .style("fill", "steelblue")
+        .style("fill", "white")
         .call(yAxisLeft);
 
       svg
         .append("g")
         .attr("class", "y axis")
         .attr("transform", "translate(" + width + " ,0)")
-        .style("fill", "red")
+        .style("fill", "white")
         .call(yAxisRight);
+
+
+      svg.append("text")
+        .attr("class", "x label")
+        .attr("text-anchor", "end")
+        .attr("x", (width/2) + 90)
+        .attr("y", height + 39)
+        .attr("fill", "white")
+        .text("Dates of Games (mm/yy)");
+
+      svg.append("text")
+        .attr("class", "y label")
+        .attr("text-anchor", "end")
+        .attr("fill", "white")
+        .attr("y", 6)
+        .attr("dy", "-2.5em")
+        .attr("dx", "-4.5em")
+        .attr("transform", "rotate(-90)")
+        .text("points");
+
+      svg.append("text")
+        .attr("class", "y 1 label")
+        .attr("text-anchor", "end")
+        .attr("fill", "white")
+        .attr("y", 1)
+        .attr("dy", "83.2em")
+        .attr("dx", "-4.5em")
+        .attr("transform", "rotate(-90)")
+        .text("miles");
+    
     });
   }, []);
 
@@ -270,9 +301,9 @@ export default function Dashboard() {
           >
             Generate
           </button>
-          <AwesomeButton type="submit" class="savedGenerationBtn">
+          {/* <AwesomeButton type="submit" class="savedGenerationBtn">
             Saved Generation 1
-          </AwesomeButton>{" "}
+          </AwesomeButton>{" "} */}
           <br /> <br />
           <button type="submit" class="savedGenerationBtn">
             Saved Generation 2

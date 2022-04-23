@@ -42,10 +42,7 @@ export default function Login({ setToken }) {
                 <div className="btnSubmit">
                     <Link to = "/dashboard">
                         <button type="submit" class="loginButtons">Log in</button> <br /> <br />
-                    </Link>
-
-                    <button type="submit" class="loginButtons">Forgot Password</button> <br /><br />
-                    <button type="submit" class="loginButtons">New User</button>
+                    </Link>             
                 </div>
             </form>
         </div>
