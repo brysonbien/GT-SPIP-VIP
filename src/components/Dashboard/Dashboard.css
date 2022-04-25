@@ -1,0 +1,75 @@
+button.btnGenerate {
+  background-color: #b3a369;
+  color: white;
+  border-radius: 25px;
+  font-weight: bold;
+  margin-top: 20px;
+  display: flex;
+  /* justify-content: flex-end; */
+  flex-direction: row-reverse;
+  float: right;
+  /* left: 65%; */
+  font-size: 20px;
+  padding: 5px;
+}
+button.btnPrint {
+  background-color: #b3a369;
+  color: white;
+  border-radius: 25px;
+  font-weight: bold;
+  margin-top: 20px;
+  /* position: relative; */
+  /* left: 80%; */
+  font-size: 20px;
+  padding: 5px;
+}
+button.savedGenerationBtn {
+  background-color: #b3a369;
+  color: white;
+  border-radius: 25px;
+  font-weight: bold;
+  margin-top: 20px;
+  display: flex;
+  /* justify-content: flex-end; */
+  flex-direction: row-reverse;
+  float: right;
+  /* left: 65%; */
+  font-size: 20px;
+  padding: 5px;
+}
+Dropdown.dropdown {
+  left: 100%;
+}
+select.selectPlayers {
+  width: 150px;
+  height: 30px;
+  border-radius: 25px;
+  /*padding-left: 20px; */
+}
+label.dateRangeLabel {
+  color: white;
+  font-weight: bold;
+  justify-content: center;
+  padding: 10px;
+}
+/* div.configurationGroup {
+    display : table-row;
+} */
+.Row {
+  display: flex;
+  width: 100%; /*Optional*/
+  justify-content: center;
+}
+/* .Column {
+    display: table-cell;
+    
+} */
+
+.buttondiv {
+  display: flex;
+  justify-content: center;
+}
+
+#chart {
+  background-color: #003057;
+}

@@ -1,0 +1,51 @@
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+body {
+    background-color: #003057;
+}
+
+.btnSubmit {
+    margin-top: 20px;
+    position: relative;
+    left: 35%;
+}
+
+button.loginButtons {
+    background-color: #B3A369;
+    color: white;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.pageText {
+    color: white;
+    font-weight: bold;
+}
+
+#user {
+    display: inline-block;
+}
+
+#pass {
+    display: inline-block;
+}
+
+p {
+    text-align: right;
+}
+input {
+    border: 3px solid #B3A369;
+    border-radius: 25px;
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.passInput {
+    margin-left: 20px;
+}
