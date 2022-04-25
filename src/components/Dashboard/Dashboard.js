@@ -233,16 +233,17 @@ export default function Dashboard() {
         .style("fill", "white")
         .call(yAxisRight);
 
-
-      svg.append("text")
+      svg
+        .append("text")
         .attr("class", "x label")
         .attr("text-anchor", "end")
-        .attr("x", (width/2) + 90)
+        .attr("x", width / 2 + 90)
         .attr("y", height + 39)
         .attr("fill", "white")
         .text("Dates of Games (mm/yy)");
 
-      svg.append("text")
+      svg
+        .append("text")
         .attr("class", "y label")
         .attr("text-anchor", "end")
         .attr("fill", "white")
@@ -252,7 +253,8 @@ export default function Dashboard() {
         .attr("transform", "rotate(-90)")
         .text("points");
 
-      svg.append("text")
+      svg
+        .append("text")
         .attr("class", "y 1 label")
         .attr("text-anchor", "end")
         .attr("fill", "white")
@@ -261,7 +263,68 @@ export default function Dashboard() {
         .attr("dx", "-4.5em")
         .attr("transform", "rotate(-90)")
         .text("miles");
-    
+
+      svg
+        .append("circle")
+        .attr("cx", 1000)
+        .attr("cy", -30)
+        .attr("r", 6)
+        .style("fill", "yellow");
+      svg
+        .append("circle")
+        .attr("cx", 1000)
+        .attr("cy", 0)
+        .attr("r", 6)
+        .style("fill", "red");
+      svg
+        .append("text")
+        .attr("x", 1020)
+        .attr("y", -30)
+        .text("Points")
+        .style("font-size", "15px")
+        .attr("alignment-baseline", "middle")
+        .style("fill", "yellow");
+      svg
+        .append("text")
+        .attr("x", 1020)
+        .attr("y", 0)
+        .text("Distance")
+        .style("font-size", "15px")
+        .attr("alignment-baseline", "middle")
+        .style("fill", "red");
+
+      svg
+        .append("circle")
+        .attr("cx", 1100)
+        .attr("cy", -30)
+        .attr("r", 6)
+        .style("fill", "yellow")
+        .style("opacity", 0.5);
+      svg
+        .append("circle")
+        .attr("cx", 1100)
+        .attr("cy", 0)
+        .attr("r", 6)
+        .style("fill", "red")
+        .style("opacity", 0.5);
+      svg
+        .append("text")
+        .attr("x", 1120)
+        .attr("y", -30)
+        .text("Average Points")
+        .style("font-size", "15px")
+        .attr("alignment-baseline", "middle")
+        .style("fill", "yellow")
+        .style("opacity", 0.5);
+      svg
+        .append("text")
+        .attr("x", 1120)
+        .attr("y", 0)
+        .text("Average Distance")
+        .style("font-size", "15px")
+        .attr("alignment-baseline", "middle")
+        .style("fill", "red")
+        .style("opacity", 0.5);
     });
   }, []);
 
