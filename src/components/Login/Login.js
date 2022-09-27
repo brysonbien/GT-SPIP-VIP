@@ -53,14 +53,12 @@ export default function Login({ setToken }) {
 					/>
 				</label>
 				<div className="btnSubmit">
-					<BrowserRouter>
 						<Link to="/dashboard">
 							<button type="submit" className="loginButtons">
 								Log in
 							</button>{" "}
 							<br /> <br />
 						</Link>
-					</BrowserRouter>
 				</div>
 			</form>
 		</div>
