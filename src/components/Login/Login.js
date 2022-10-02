@@ -53,13 +53,12 @@ export default function Login({ setToken }) {
 					/>
 				</label>
 				<div className="btnSubmit">
-						<Link to="/dashboard">
-							<button type="submit" className="loginButtons">
-								Log in
-							</button>{" "}
-							<br /> <br />
-						</Link>
-
+					<Link to="/dashboard">
+						<button type="submit" className="loginButtons">
+							Log in
+						</button>{" "}
+						<br /> <br />
+					</Link>
 				</div>
 			</form>
 		</div>

@@ -6,374 +6,155 @@ import * as d3 from "d3";
 // import { AwesomeButton } from "react-awesome-button";
 // import "react-awesome-button/dist/styles.css";
 export default function Dashboard() {
-  const [player, setPlayer] = React.useState("Select a player: ");
-  const handlePlayerChange = (event) => {
-    setPlayer(event.target.value);
-  };
+	const [player, setPlayer] = React.useState("Select a player: ");
+	const [date, setDate] = React.useState("Select a date: ");
+	const [graph, setGraph] = React.useState("");
 
-  const Dropdown = ({ label, value, options, onChange }) => {
-    return (
-      <select class="selectPlayers" value={value} onChange={onChange}>
-        {options.map((option) => (
-          <option value={option.value}>{option.label}</option>
-        ))}
-      </select>
-    );
-  };
-  function isValidDate(dateString) {
-    // First check for the pattern
-    if (!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateString)) return false;
+	const handlePlayerChange = (event) => {
+		setPlayer(event.target.value);
+	};
 
-    // Parse the date parts to integers
-    var parts = dateString.split("/");
-    var day = parseInt(parts[1], 10);
-    var month = parseInt(parts[0], 10);
-    var year = parseInt(parts[2], 10);
+	const handleDateChange = (event) => {
+		setDate(event.target.value);
+	};
 
-    // Check the ranges of month and year
-    if (year < 1000 || year > 3000 || month == 0 || month > 12) return false;
+	const PlayerDropdown = ({ label, value, options, onChange }) => {
+		return (
+			<select class="selectPlayers" value={value} onChange={onChange}>
+				{options.map((option) => (
+					<option value={option.value}>{option.label}</option>
+				))}
+			</select>
+		);
+	};
 
-    var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+	const DateDropdown = ({ label, value, options, onChange }) => {
+		return (
+			<select class="selectDates" value={value} onChange={onChange}>
+				{options.map((option) => (
+					<option value={option.value}>{option.label}</option>
+				))}
+			</select>
+		);
+	};
 
-    // Adjust for leap years
-    if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
-      monthLength[1] = 29;
+	function isValidDate(dateString) {
+		// First check for the pattern
+		if (!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateString)) return false;
 
-    // Check the range of the day
-    return day > 0 && day <= monthLength[month - 1];
-  }
-  function handleQuery() {
-    const queryList = [];
-    const startDate = document.getElementById("startDate").value;
-    const endDate = document.getElementById("endDate").value;
-    var lengthCondition = startDate.length == 10 && endDate.length == 10;
-    var formatCondition = isValidDate(startDate) && isValidDate(endDate);
-    if (player === "Select a player: ") {
-      window.alert("Please select a player");
-      return;
-    }
-    if (lengthCondition && formatCondition) {
-      var sequentialCondition = Date.parse(startDate) < Date.parse(endDate);
-      if (sequentialCondition) {
-        queryList.push(player, startDate, endDate);
-        window.alert(queryList);
-      } else {
-        window.alert("End date must be after start date");
-      }
-    } else {
-      window.alert("Incorrect date format, please try again.");
-    }
-    return queryList;
-  }
-  //get label (kinexon number) from Dropdown menu
-  //get date range from input
-  //make sure data range is valid or return error message
-  //if valid store in a list separated by each section
+		// Parse the date parts to integers
+		var parts = dateString.split("/");
+		var day = parseInt(parts[1], 10);
+		var month = parseInt(parts[0], 10);
+		var year = parseInt(parts[2], 10);
 
-  useEffect(() => {
-    var margin = { top: 50, right: 50, bottom: 50, left: 50 },
-      width = 1300,
-      height = 270 - margin.top - margin.bottom;
+		// Check the ranges of month and year
+		if (year < 1000 || year > 3000 || month == 0 || month > 12) return false;
 
-    var parseDate = d3.time.format("%Y-%m-%d").parse;
+		var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-    var x = d3.time.scale().range([0, width]);
-    var y0 = d3.scale.linear().range([height, 0]);
-    var y1 = d3.scale.linear().range([height, 0]);
+		// Adjust for leap years
+		if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
+			monthLength[1] = 29;
 
-    //var xAxis = d3.svg.axis().scale(x).orient("bottom");
+		// Check the range of the day
+		return day > 0 && day <= monthLength[month - 1];
+	}
+	function handleQuery() {
+		const queryList = [];
+		const startDate = document.getElementById("startDate").value;
+		const endDate = document.getElementById("endDate").value;
+		var lengthCondition = startDate.length == 10 && endDate.length == 10;
+		var formatCondition = isValidDate(startDate) && isValidDate(endDate);
+		if (player === "Select a player: ") {
+			window.alert("Please select a player");
+			return;
+		}
+		if (lengthCondition && formatCondition) {
+			var sequentialCondition = Date.parse(startDate) < Date.parse(endDate);
+			if (sequentialCondition) {
+				queryList.push(player, startDate, endDate);
+				window.alert(queryList);
+			} else {
+				window.alert("End date must be after start date");
+			}
+		} else {
+			window.alert("Incorrect date format, please try again.");
+		}
+		return queryList;
+	}
+	//get label (kinexon number) from Dropdown menu
+	//get date range from input
+	//make sure data range is valid or return error message
+	//if valid store in a list separated by each section
 
-    var yAxisLeft = d3.svg.axis().scale(y0).orient("left").ticks(5);
+	return (
+		<>
+			<h2>Dashboard</h2>
+			<div>
+				<div class="graphOptionDiv">
+					<button type="submit" class="btnMechPhysio">
+						Mechanical vs Physio Graph
+					</button>
+					<button type="submit" class="btnPhases">
+						Phases Graph
+					</button>
+				</div>
+				<div class="Row">
+					<PlayerDropdown
+						options={[
+							{ label: "Select a player: ", value: "Select a player: " },
+							{ label: "ALL", value: "-1" },
+							{ label: "Jordan Usher", value: "4" },
+							{ label: "Khalid Moore", value: "12" },
+							{ label: "Rodney Howard", value: "24" },
+							{ label: "Michael Devoe", value: "0" },
+							{ label: "Kyle Sturdivant", value: "1" },
+						]}
+						value={player}
+						onChange={handlePlayerChange}
+					/>
 
-    var yAxisRight = d3.svg.axis().scale(y1).orient("right").ticks(5);
-
-    const formatTime = d3.time.format("%m.%d");
-
-    //console.log(avg);
-
-    var valueline = d3.svg
-      .line()
-      .x(function (d) {
-        return x(d.date);
-      })
-      .y(function (d) {
-        return y0(d.Points);
-      });
-
-    var valueline2 = d3.svg
-      .line()
-      .x(function (d) {
-        return x(d.date);
-      })
-      .y(function (d) {
-        return y1(d.Distance);
-      });
-
-    var avgPointsLine = d3.svg
-      .line()
-      .x(function (d) {
-        return x(d.date);
-      })
-      .y(function (d) {
-        return y0(d.AvgPoints);
-      });
-
-    var avgDistanceLine = d3.svg
-      .line()
-      .x(function (d) {
-        return x(d.date);
-      })
-      .y(function (d) {
-        return y1(d.AvgDistance);
-      });
-
-    var svg = d3
-      .select("#chart")
-      .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    // Get the data
-    d3.csv(data, function (error, data) {
-      var pointsSum = 0;
-      var distanceSum = 0;
-
-      var avg = true;
-
-      data.forEach(function (d) {
-        d.date = parseDate(d.Date);
-        d.points = d.Points;
-        d.distance = d.Distance;
-        d.avgPoints = d.AvgPoints;
-        d.avgDistance = d.AvgDistance;
-        pointsSum += parseFloat(d.Points);
-        distanceSum += parseFloat(d.Distance);
-      });
-
-      var avgPoints = pointsSum / data.length;
-      var avgDistance = distanceSum / data.length;
-      console.log(avgPoints);
-      console.log(avgDistance);
-
-      const tickValuesForAxis = data.map((d) => parseDate(d.Date));
-      var xAxis = d3.svg
-        .axis()
-        .scale(x)
-        .orient("bottom")
-        .tickValues(tickValuesForAxis)
-        .tickFormat(function (d) {
-          return formatTime(d);
-        });
-
-      // Scale the range of the data
-      x.domain(
-        d3.extent(data, function (d) {
-          return d.date;
-        })
-      );
-      y0.domain([
-        0,
-        d3.max(data, function (d) {
-          return Math.max(d.points);
-        }),
-      ]);
-      y1.domain([
-        0,
-        d3.max(data, function (d) {
-          return Math.max(d.distance);
-        }),
-      ]);
-
-      svg
-        .append("path") // Add the valueline path.
-        .style("stroke", "yellow")
-        .style("fill", "none")
-        .attr("d", valueline(data));
-
-      svg
-        .append("path") // Add the valueline2 path.
-        .style("stroke", "red")
-        .style("fill", "none")
-        .attr("d", valueline2(data));
-
-      console.log(avg);
-      svg
-        .append("path")
-        .style("opacity", 0.5)
-        .style("stroke", "yellow")
-        .style("fill", "none")
-        .attr("d", avgPointsLine(data));
-
-      svg
-        .append("path")
-        .style("fill", "none")
-        .style("opacity", "0.5")
-        .style("stroke", "red")
-        .attr("d", avgDistanceLine(data));
-
-      svg
-        .append("g") // Add the X Axis
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
-        .style("fill", "white")
-        .call(xAxis);
-
-      svg
-        .append("g")
-        .attr("class", "y axis")
-        .style("fill", "white")
-        .call(yAxisLeft);
-
-      svg
-        .append("g")
-        .attr("class", "y axis")
-        .attr("transform", "translate(" + width + " ,0)")
-        .style("fill", "white")
-        .call(yAxisRight);
-
-      svg
-        .append("text")
-        .attr("class", "x label")
-        .attr("text-anchor", "end")
-        .attr("x", width / 2 + 90)
-        .attr("y", height + 39)
-        .attr("fill", "white")
-        .text("Dates of Games (mm/yy)");
-
-      svg
-        .append("text")
-        .attr("class", "y label")
-        .attr("text-anchor", "end")
-        .attr("fill", "white")
-        .attr("y", 6)
-        .attr("dy", "-2.5em")
-        .attr("dx", "-4.5em")
-        .attr("transform", "rotate(-90)")
-        .text("points");
-
-      svg
-        .append("text")
-        .attr("class", "y 1 label")
-        .attr("text-anchor", "end")
-        .attr("fill", "white")
-        .attr("y", 1)
-        .attr("dy", "83.2em")
-        .attr("dx", "-4.5em")
-        .attr("transform", "rotate(-90)")
-        .text("miles");
-
-      svg
-        .append("circle")
-        .attr("cx", 1000)
-        .attr("cy", -30)
-        .attr("r", 6)
-        .style("fill", "yellow");
-      svg
-        .append("circle")
-        .attr("cx", 1000)
-        .attr("cy", 0)
-        .attr("r", 6)
-        .style("fill", "red");
-      svg
-        .append("text")
-        .attr("x", 1020)
-        .attr("y", -30)
-        .text("Points")
-        .style("font-size", "15px")
-        .attr("alignment-baseline", "middle")
-        .style("fill", "yellow");
-      svg
-        .append("text")
-        .attr("x", 1020)
-        .attr("y", 0)
-        .text("Distance")
-        .style("font-size", "15px")
-        .attr("alignment-baseline", "middle")
-        .style("fill", "red");
-
-      svg
-        .append("circle")
-        .attr("cx", 1100)
-        .attr("cy", -30)
-        .attr("r", 6)
-        .style("fill", "yellow")
-        .style("opacity", 0.5);
-      svg
-        .append("circle")
-        .attr("cx", 1100)
-        .attr("cy", 0)
-        .attr("r", 6)
-        .style("fill", "red")
-        .style("opacity", 0.5);
-      svg
-        .append("text")
-        .attr("x", 1120)
-        .attr("y", -30)
-        .text("Average Points")
-        .style("font-size", "15px")
-        .attr("alignment-baseline", "middle")
-        .style("fill", "yellow")
-        .style("opacity", 0.5);
-      svg
-        .append("text")
-        .attr("x", 1120)
-        .attr("y", 0)
-        .text("Average Distance")
-        .style("font-size", "15px")
-        .attr("alignment-baseline", "middle")
-        .style("fill", "red")
-        .style("opacity", 0.5);
-    });
-  }, []);
-
-  return (
-    <>
-      <h2>Dashboard</h2>
-      <div>
-        <div class="Row">
-          <Dropdown
-            options={[
-              { label: "Select a player: ", value: "Select a player: " },
-              { label: "ALL", value: "-1" },
-              { label: "Jordan Usher", value: "4" },
-              { label: "Khalid Moore", value: "12" },
-              { label: "Rodney Howard", value: "24" },
-              { label: "Michael Devoe", value: "0" },
-              { label: "Kyle Sturdivant", value: "1" },
-            ]}
-            value={player}
-            onChange={handlePlayerChange}
-          />
-
-          <label class="dateRangeLabel">
-            <label>Date Range (MM/DD/YYYY):</label>
-            <input id="startDate" />
-            <input id="endDate" />
-          </label>
-        </div>
-        <div class="buttondiv">
-          <button type="submit" class="btnPrint">
-            Print
-          </button>
-          <button
-            onClick={(e) => handleQuery()}
-            type="submit"
-            class="btnGenerate"
-          >
-            Generate
-          </button>
-          {/* <AwesomeButton type="submit" class="savedGenerationBtn">
+					<DateDropdown
+						options={[
+							{
+								label: "Select a date range: ",
+								value: "Select a date range: ",
+							},
+							{ label: "This Week", value: "-1" },
+							{ label: "Date Range From Last Week", value: "12" },
+							{ label: "Date Range From Two Weeks Ago", value: "4" },
+						]}
+						value={date}
+						onChange={handleDateChange}
+					/>
+					{/* <label class="dateRangeLabel">
+						<label>Date Range (MM/DD/YYYY):</label>
+						<input id="startDate" />
+						<input id="endDate" />
+					</label> */}
+				</div>
+				<div class="buttondiv">
+					<button type="submit" class="btnPrint">
+						Print
+					</button>
+					<button
+						onClick={(e) => handleQuery()}
+						type="submit"
+						class="btnGenerate"
+					>
+						Generate
+					</button>
+					{/* <AwesomeButton type="submit" class="savedGenerationBtn">
             Saved Generation 1
           </AwesomeButton>{" "} */}
-          <br /> <br />
-          <button type="submit" class="savedGenerationBtn">
-            Saved Generation 2
-          </button>
-        </div>
-      </div>
-      <div id="chart"></div>
-    </>
-  );
+					<br /> <br />
+					{/* <button type="submit" class="savedGenerationBtn">
+						Saved Generation
+					</button> */}
+				</div>
+			</div>
+			<div id="chart"></div>
+		</>
+	);
 }
