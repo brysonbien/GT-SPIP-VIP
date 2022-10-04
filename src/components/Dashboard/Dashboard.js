@@ -1,11 +1,44 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import data from "./Devoe_points_NonZero.csv";
 import "./Dashboard.css";
 import PropTypes from "prop-types";
 import * as d3 from "d3";
+import Dropdown from "./components/Dropdown";
+import Viz from "./components/Viz";
+import mbbdata from "./data/mbbdata.json";
 // import { AwesomeButton } from "react-awesome-button";
 // import "react-awesome-button/dist/styles.css";
 export default function Dashboard() {
+
+
+	const [person, setPerson] = useState("Lance Terry");
+	var playerData = [];
+
+	var sumx = 0;
+	var sumy = 0;
+	mbbdata.forEach((element) => {
+		if (element.Player_Name === person) {
+		playerData.push({
+			x: element.Mechanical_Load,
+			y: element.Physio_Load,
+			day: element.Date,
+		});
+		sumx += element.Mechanical_Load;
+		sumy += element.Physio_Load;
+		}
+	});
+
+	var averageData = [
+		{
+		x: Math.round(sumx / playerData.length),
+		y: Math.round(sumy / playerData.length),
+		day: "average",
+		},
+	];    
+
+
+
+
 	const [player, setPlayer] = React.useState("Select a player: ");
 	const [date, setDate] = React.useState("Select a date: ");
 	const [graph, setGraph] = React.useState("");
@@ -90,6 +123,7 @@ export default function Dashboard() {
 
 	return (
 		<>
+		
 			<h2>Dashboard</h2>
 			<div>
 				<div class="graphOptionDiv">
@@ -100,6 +134,19 @@ export default function Dashboard() {
 						Phases Graph
 					</button>
 				</div>
+				<div>
+      <h1>Mechanical vs Physio Graph</h1>
+      <div className="dropdown">
+        <Dropdown player={person} setPlayer={setPerson} />
+      </div>
+      <div className="viz">
+        <Viz
+          player={person}
+          playerData={playerData}
+          averageData={averageData}
+        />
+      </div>
+    </div>
 				<div class="Row">
 					<PlayerDropdown
 						options={[
