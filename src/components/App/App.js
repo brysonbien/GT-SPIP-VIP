@@ -5,6 +5,7 @@ import Dashboard from '../Dashboard/Dashboard';
 import Login from '../Login/Login';
 import Preferences from '../Preferences/Preferences';
 import useToken from './useToken';
+import Homepage from '../Homepage/Homepage';
 
 
 function App() {
@@ -14,8 +15,8 @@ function App() {
     return <Login setToken={setToken} />
   }
   return (
-    <div className="wrapper">
-      <h1>Georgia Tech MBB VIP</h1>
+    <div className="home">
+      <h1>Sports Intelligence Platform</h1>
       <BrowserRouter>
         <Switch>
           <Route path="/dashboard">
@@ -24,8 +25,11 @@ function App() {
           <Route path="/preferences">
             <Preferences />
           </Route>
-          <Route path="/">
+          <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/">
+            <Homepage />
           </Route>
         </Switch>
       </BrowserRouter>

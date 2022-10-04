@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #003057;
+    background-color: #FFFFFF;
 }
 
 .btnSubmit {
@@ -24,7 +24,7 @@ button.loginButtons {
 }
 
 .pageText {
-    color: white;
+    color: #003057;
     font-weight: bold;
 }
 
