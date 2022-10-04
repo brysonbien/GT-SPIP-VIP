@@ -7,3 +7,11 @@
   flex-direction: column;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+
+.wrapper {
+  padding: 20px;
+}
+h1, h2 {
+  color: #003057;
+  text-align: center;
+}
