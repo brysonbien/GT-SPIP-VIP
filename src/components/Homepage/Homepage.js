@@ -2,20 +2,19 @@ import React from 'react';
 import Login from '../Login/Login';
 import gtmensbasketballbanner from "../Homepage/gtmensbasketballbanner.png"
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import "../Homepage/Homepage.css";
 
 export default function Homepage() {
     return ( 
-        <div className='home test' style = {{backgroundImage: `url(${gtmensbasketballbanner})` }}>
-            
-            <Link to="/login">
-                <button type="submit" className="NextPage">
-                    Next Page
-                </button>{" "}
+        <div className="home" style={{ backgroundImage: `url(${gtmensbasketballbanner})` }}>
+            <div className="headerContainer">
+                <h1>Sports Intelligence Platform</h1>
+        
+                <p>Welcome!</p>
+            <Link to="/Dashboard">
+                <button> Continue </button>
             </Link>
-            <div className='welcome'>
-                Welcome to the Sports Intelligence Platform made by Georgia Tech's VIP Program!
             </div>
-
         </div>
         
         
