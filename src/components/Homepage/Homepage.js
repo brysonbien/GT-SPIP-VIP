@@ -6,6 +6,7 @@ import "../Homepage/Homepage.css";
 
 export default function Homepage() {
     return ( 
+        //make the welcome text not right ce
         <div className="home" style={{ backgroundImage: `url(${gtmensbasketballbanner})` }}>
             <div className="headerContainer">
                 <h1>Sports Intelligence Platform</h1>

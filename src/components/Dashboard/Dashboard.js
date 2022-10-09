@@ -30,10 +30,10 @@ export default function Dashboard() {
 			day: "average",
 		},
 	];
-
+	//brayden daniels is broken
 	return (
 		<>
-			<h1>Dashboard</h1>
+			<h1 className="viz">Dashboard</h1>
 			<div>
 				<div class="graphOptionDiv">
 					<button
@@ -49,7 +49,7 @@ export default function Dashboard() {
 				</div>
 				{mpGraph && (
 					<div>
-						<h2>Mechanical vs Physio Graph</h2>
+						<h1 className="viz">Mechanical vs Physio Graph</h1>
 						<div className="dropdown">
 							<Dropdown player={person} setPlayer={setPerson} />
 						</div>
