@@ -36,9 +36,6 @@ button.loginButtons {
     display: inline-block;
 }
 
-p {
-    text-align: right;
-}
 input {
     border: 3px solid #B3A369;
     border-radius: 25px;

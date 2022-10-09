@@ -86,7 +86,7 @@ function Viz({ player, playerData, averageData }) {
   return (
     <div className="Viz">
       <div className="viz_title">{player}</div>
-      <Scatter data={data} options={options}/>
+      <Scatter data={data} options={options} style={{ height: '500px' }}/>
     </div>
   )
   }
