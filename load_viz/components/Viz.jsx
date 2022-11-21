@@ -9,7 +9,6 @@ function Viz({ player, playerData, averageData }) {
   const [haveData, setHaveData] = useState(false)
   const [data, setData] = useState({})
 
-  
 
   useEffect(() => {
     if(playerData == null){
@@ -31,6 +30,37 @@ function Viz({ player, playerData, averageData }) {
     setHaveData(true)}
   }, [playerData])
 
+
+  useEffect(() => {
+    ChartJS.register({
+      id: "custom_canvas_background_color",
+      beforeDraw: (chart) => {
+        const ctx = chart.canvas.getContext("2d");
+        const {chartArea: {top, bottom, left, right, width}} = chart
+        ctx.save();
+        ctx.globalCompositeOperation = "destination-over";
+        ctx.fillStyle = "rgb(255, 127, 127)"
+        ctx.beginPath();
+        ctx.moveTo(left, top);
+        ctx.lineTo(left, bottom);
+        ctx.lineTo(right, bottom);
+        ctx.closePath()
+        ctx.fill()
+        ctx.fillStyle = "lightGreen"
+        ctx.beginPath();
+        ctx.moveTo(left, top);
+        ctx.lineTo(right, top);
+        ctx.lineTo(right, bottom);
+        ctx.closePath()
+        ctx.fill()
+        ctx.restore();
+        // console.log(averageData[0].x)
+        //chart.update();
+      }
+    })
+  }, [averageData])
+  
+
   var options = {
     plugins:{
       tooltip:{
@@ -46,6 +76,7 @@ function Viz({ player, playerData, averageData }) {
         }
       }
     },
+    //plugins:[custom_canvas_background_color],
     elements: {
       point:{
         pointStyle:function(context) {
@@ -69,13 +100,17 @@ function Viz({ player, playerData, averageData }) {
         title: {
           display: true,
           text: 'Mechanical Load'
-        }
+        },
+        max: 3000,
+        min:0
       },
       y: {
         title: {
           display: true,
           text: 'Physio Load'
-        }
+        },
+        max: 1800,
+        min:0
       }
     }
   };

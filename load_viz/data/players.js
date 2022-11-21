@@ -29,7 +29,7 @@ export const playerList = [
   },
   {
     number: 12,
-    name: "Freds Pauls Bagatskis",
+    name: "Freds Bagatskis",
   },
   {
     number: 13,
@@ -42,21 +42,5 @@ export const playerList = [
   {
     number: 23,
     name: "Jordan Meka",
-  },
-  {
-    number: 30,
-    name: "Coleman Boyd",
-  },
-  {
-    number: 33,
-    name: "Brayden Daniels",
-  },
-  {
-    number: 35,
-    name: "Emmer Nichols",
-  },
-  {
-    number: 43,
-    name: "Jermontae Hill",
   },
 ];
