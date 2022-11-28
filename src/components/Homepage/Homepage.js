@@ -1,23 +1,24 @@
-import React from 'react';
-import Login from '../Login/Login';
+import React from "react";
+import Login from "../Login/Login";
+import gtmensbasketballbanner from "../Homepage/gtmensbasketballbanner.png";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import "../Homepage/Homepage.css";
 
 export default function Homepage() {
-    return(
-        <div className="home" style = {{ }}>
-            <div className="headerContainer">
-                <h1 className="homepageTitle">
-                    
-                </h1>
-			    <br />
-                <div className="btnSubmit">
+	return (
+		//make the welcome text not right ce
+		<div
+			className="home"
+			style={{ backgroundImage: `url(${gtmensbasketballbanner})` }}
+		>
+			<div className="headerContainer">
+				<h1>Sports Intelligence Platform</h1>
+
+				<p>Welcome!</p>
 				<Link to="/login">
-					<button type="submit" className="loginButtons">
-						Next Page
-					</button>{" "}
+					<button> Continue </button>
 				</Link>
-			    </div>
-            </div>
+			</div>
 		</div>
-    );
+	);
 }

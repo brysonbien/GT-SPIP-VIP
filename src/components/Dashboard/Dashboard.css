@@ -1,36 +1,9 @@
-button.btnGenerate {
-  background-color: #b3a369;
-  color: #003057;
-  border-radius: 25px;
-  font-weight: bold;
-  margin-top: 20px;
-  display: flex;
-  /* justify-content: flex-end; */
-  flex-direction: row-reverse;
-  float: right;
-  /* left: 65%; */
-  font-size: 20px;
-  padding: 5px;
-}
-button.btnPrint {
-  background-color: #b3a369;
-  color: #003057;
-  border-radius: 25px;
-  font-weight: bold;
-  margin-top: 20px;
-  /* position: relative; */
-  /* left: 80%; */
-  font-size: 20px;
-  padding: 5px;
-}
 button.btnMechPhysio {
   background-color: #b3a369;
   color: #003057;
   border-radius: 25px;
   font-weight: bold;
   margin-top: 20px;
-  /* position: relative; */
-  /* left: 80%; */
   font-size: 20px;
   padding: 5px;
 }
@@ -40,8 +13,6 @@ button.btnPhases {
   border-radius: 25px;
   font-weight: bold;
   margin-top: 20px;
-  /* position: relative; */
-  /* left: 80%; */
   font-size: 20px;
   padding: 5px;
 }
@@ -53,62 +24,20 @@ button.btnPhases:hover {
   background-color: #003057;
   color: #b3a369;
 }
-button.btnPrint:hover {
-  background-color: #003057;
-  color: #b3a369;
-}
-button.btnGenerate:hover {
-  background-color: #003057;
-  color: #b3a369;
-}
-/* Dropdown.dropdown {
-  left: 100%;
-} */
-select.selectPlayers {
-  width: 150px;
-  height: 30px;
-  border-radius: 25px;
-  /*padding-left: 20px; */
-}
-
-select.selectDates {
-  width: 150px;
-  height: 30px;
-  border-radius: 25px;
-  /*padding-left: 20px; */
-}
-
-label.dateRangeLabel {
-  color: #003057;
-  font-weight: bold;
-  justify-content: center;
-  padding: 10px;
-}
-/* div.configurationGroup {
-    display : table-row;
-} */
-.Row {
-  display: flex;
-  width: 100%; /*Optional*/
-  justify-content: center;
-}
-/* .Column {
-    display: table-cell;
-    
-} */
 
 .graphOptionDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.viz {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.buttondiv {
-  display: flex;
-  justify-content: center;
-}
 
-/* #chart {
-  background-color: white;
-} */
+

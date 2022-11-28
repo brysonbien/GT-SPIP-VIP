@@ -1,40 +1,36 @@
-import React, { useState } from 'react';
-import './App.css';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import Dashboard from '../Dashboard/Dashboard';
-import Login from '../Login/Login';
-import Preferences from '../Preferences/Preferences';
-import useToken from './useToken';
-import Homepage from '../Homepage/Homepage';
-
+import React, { useState } from "react";
+import "./App.css";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Dashboard from "../Dashboard/Dashboard";
+import Login from "../Login/Login";
+import Preferences from "../Preferences/Preferences";
+import useToken from "./useToken";
+import Homepage from "../Homepage/Homepage";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
+import gtmensbasketballbanner from "../Homepage/gtmensbasketballbanner.png";
 
 function App() {
-  const { token, setToken } = useToken();
+	const { token, setToken } = useToken();
 
-  if(!token) {
-    return <Login setToken={setToken} />
-  }
-  return (
-    <div className="home">
-      <h1>Sports Intelligence Platform</h1>
-      <BrowserRouter>
-        <Switch>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-          <Route path="/preferences">
-            <Preferences />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/">
-            <Homepage />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    </div>
-  );
+	// if(!token) {
+	//   return <Login setToken={setToken} />
+	// }
+	return (
+		<div className="App">
+			<BrowserRouter>
+				<Navbar />
+				<Switch>
+					<Route path="/" exact component={Homepage} />
+					<Route path="/login" exact component={Login} />
+					<Route path="/dashboard" exact component={Dashboard} />
+					{/* <Route path="/about" exact component={About} />
+          <Route path="/contact" exact component={Contact} /> */}
+				</Switch>
+				<Footer />
+			</BrowserRouter>
+		</div>
+	);
 }
 
 export default App;
