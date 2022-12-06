@@ -49,13 +49,29 @@ function App() {
 
   return (
     <div>
-      <h1>App</h1>
-      <div className="dropdown">
-        <Dropdown player={player} setPlayer={setPlayer} />
-      </div>
-      <br></br>
-      <div className="dateFilter">
-        <DateFilter date={date} setDate={setDate} />
+      <div className="header">
+        <div className="header_component">
+          <h1>App</h1>
+          <div className="dropdown">
+            <Dropdown player={player} setPlayer={setPlayer} />
+          </div>
+          <br></br>
+          <div className="dateFilter">
+            <DateFilter date={date} setDate={setDate} />
+          </div>
+        </div>
+        <div className="header_text">
+          Mechanical Load: jumps, accelerates, decelerates, etc.
+          <br />
+          <br />
+          Physio Load: just jogging around on the court.
+          <br />
+          <br />
+          Ideally, we want the the player's Mechanical Load to be high so that we know he is working hard.
+          <br />
+          <br />A high Physio Load and a low Mechanical Load is a red flag
+          because the players is not working hard.
+        </div>
       </div>
       <div className="viz">
         <Viz

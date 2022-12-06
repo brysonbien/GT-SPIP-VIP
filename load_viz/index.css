@@ -12,10 +12,20 @@ code {
     monospace;
 }
 
-.viz_title{
+.viz_title {
   text-align: center;
 }
 
-.dropdown{
-  width: 30%;
+.dropdown {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header_text {
+  border: 2px solid black;
+  width: 400px;
 }
