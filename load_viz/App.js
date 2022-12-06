@@ -65,12 +65,6 @@ function App() {
           <br />
           <br />
           Physio Load: just jogging around on the court.
-          <br />
-          <br />
-          Ideally, we want the the player's Mechanical Load to be high so that we know he is working hard.
-          <br />
-          <br />A high Physio Load and a low Mechanical Load is a red flag
-          because the players is not working hard.
         </div>
       </div>
       <div className="viz">
