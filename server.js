@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const drillData = require('./src/utils/drills')
 
 app.use(cors());
 app.use('/login', (req, res) => {
@@ -9,4 +10,8 @@ app.use('/login', (req, res) => {
     });
 });
 
-app.listen(8080, () => console.log('API is running on http://localhost:8080/login'));
+app.use('/drills', (req, res) => {
+    res.json(drillData)
+})
+
+app.listen(8080, () => console.log('API is running on http://localhost:8080'));
